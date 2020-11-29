@@ -19,7 +19,8 @@ export class GroceriesServiceProvider {
 
   private dataChangeSubject: Subject<boolean>;
 
-  baseURL = "http://localhost:8080";
+  baseURL = "http://192.168.0.28:8080";
+  // baseURL = "http://localhost:8080";
 
   constructor(public http: HttpClient) {
     this.dataChangeSubject = new Subject<boolean>();
@@ -49,7 +50,6 @@ export class GroceriesServiceProvider {
 
   editItem(updatedItem, itemId) {
     this.http.put(this.baseURL + '/api/groceries/' +itemId, updatedItem).subscribe(res => {
-      console.log('res', res);
       this.items = res;
       this.dataChangeSubject.next(true);
     })

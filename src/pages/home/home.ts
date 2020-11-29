@@ -22,7 +22,7 @@ export class HomePage {
       });
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.loadItems();
   }
 
